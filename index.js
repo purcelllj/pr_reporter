@@ -1,11 +1,10 @@
-import { fetch } from 'undici';
 import fs from 'fs';
 import { config } from './config.js';
 
 const { author, token, org } = config;
+const dateArg = process.argv[2];
 const uri =
   `https://api.github.com/search/issues?q=org:${org}+is:pr+author:${author}+is:closed+closed:>${dateArg}`;
-const dateArg = process.argv[2];
 const headers = {
   Authorization: token,
   'User-Agent': author,
